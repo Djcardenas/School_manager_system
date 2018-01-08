@@ -1,0 +1,32 @@
+Léeme
+
+En este archivo explico de forma básica cómo fue desarrollada esta aplicación WEB. 
+
+Se utilizó Ruby on Rails (De ahora en adelante RoR) para implementar el modelo MVC. Se creó un modelo por entidad requerida (Estudiantes, docentes, cursos) los cuales tienen su tabla correspondiente así:
+
+	-Courses: Id, code, name, comments
+	-Students: Id, student_id, name, lastname, gender
+	-Teachers: Id, teacher_id, name, lastname, gender
+
+El "Id" es asignado por RoR de forma automática y corresponden a su posición en la tabla mientras que "student_id" y "teacher_id" corresponden al documento de identidad de cada individuo. 
+Todos los valores de entrada a las tablas están definidos como "String". 
+
+Cada uno de estos modelos esta "conectado" a un controlador en el cual se especifican los métodos necesarios para hacer las diferentes operaciones CRUD (Create, Read, Update, Destroy) necesarias para administrar el sistema además del método para editar los campos existentes. Éstos se listan a continuación:
+
+	- Método show: crea un objeto cuyos atributos se extraen de los 	campos   correspondientes a un Id dado. Sirve para las operaciones 		de lectura
+
+	-Metodo create: crea un objeto vacío que comparte atributos con 	los objetos representados en el modelo correspondiente. Si en la 	vista se introducen los valores correctamente este nuevo objeto 		para al modelo para ser almacenado en la base de datos
+
+	-Método edit: Al igual que en el método show, toma un objeto 		identificado con un Id dado. en la vista se sobreescribe este 		objeto con el fin de editarlo.
+
+	-Método update: Carga un objeto con atributos correspondientes a 	un Id para ser editados en una vista. Si el proceso se hace de la 	forma correcta el objeto será regresado con los nuevos atributos al 		modelo para que la base de datos se sobreescriba
+	
+	-Método destroy: En este se encuentra el campo representado por un 		objeto equivalente y se destruye.
+
+
+
+Adicional a esto se crearon dos controladores: Uno para la vista de la página "landing" la cual se muestra por defecto y otro para la vista "main" en la que se listan todos los elementos de la base de datos una vez se inicia sesión.
+
+Para el inicio de sesión se utilizó la gema "Devise" que permite un manejo fácil. Se configuró su uso para Gmail y la aplicación quedó preconfigurada para enviar correos electrónicos en caso de pérdida de contraseña.
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Courses</title>
+  </head>
+  <body>
+  <h1>Listing Courses</h1>
+
+  <table>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Comments</th>
+  </tr>
+  <% @courses.each do |course| %>
+    <tr>
+      <td> <%= course.code %> </td>
+      <td> <%= course.name %> </td>
+      <td> <%= course.comments %> </td>
+      <td><%= link_to 'Show', course_path(course) %></td>
+      <td><%= link_to 'Edit', edit_course_path(course) %></td>
+      <td><%= link_to 'Destroy', course_path(course),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New course', new_course_path %>
+
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<h1>Course:</h1>
+<p>
+  <strong>Code:</strong>
+  <%= @course.code %>
+</p>
+
+<p>
+  <strong>Name</strong>
+  <%= @course.name %>
+</p>
+
+<p>
+  <strong>Comments</strong>
+  <%= @course.comments %>
+</p>
+
+<%= link_to 'Back', courses_path %>
+<%= link_to 'Edit', edit_course_path(@course) %> |
